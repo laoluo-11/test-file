@@ -6,14 +6,26 @@
 #define MAX_BOOKS 100
 #define MAX_TITLE_LENGTH 100
 #define MAX_AUTHOR_LENGTH 50
-
+//结构体
 struct Book {
     int id;
     char title[MAX_TITLE_LENGTH];
     char author[MAX_AUTHOR_LENGTH];
     int available;
 };
+class User {
+public:
+    string username;
+    string password;
+    User(string u, string p) : username(u), password(p) {}
+    bool login(const string &username, const string &password) {
+        return this->username == username && this->password == password;
+    }
+    void printInfo() {
+        cout << "Username: " << username << ", Password: " << password << endl;
+    }
 
+};
 void display_menu();
 void add_book(struct Book books[], int* num_books);
 void search_book(struct Book books[], int num_books);
